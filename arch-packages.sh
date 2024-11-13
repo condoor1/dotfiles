@@ -1,6 +1,14 @@
 #!/bin/bash
 
-pacman -S gnome hyprland kitty firefox waybar wireplumber thunar rofi hyprpaper cliphist zsh noto-fonts-emoji ttf-jetbrains-mono-nerd brightnessctl hyprlock yazi bluez bluez-utils fzf neovim
+pacman -S gnome hyprland kitty firefox waybar wireplumber thunar rofi hyprpaper cliphist zsh noto-fonts-emoji ttf-jetbrains-mono-nerd brightnessctl hyprlock yazi bluez bluez-utils fzf neovim python-pywal base-devel
 
-#systemctl enable bluetooth.service
-#yay -S wlogout
+systemctl enable bluetooth.service gdm.service
+
+cd $HOME
+git clone https://aur.archlinux.org/yay.git
+
+cd yay
+makepkg -si
+
+cd $HOME
+yay -S wlogout
